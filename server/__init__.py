@@ -1,6 +1,6 @@
 from flask import Flask
 import os
-from cachelib.base import BaseCache 
+from cachelib.simple import SimpleCache 
 
 app = Flask(__name__)
 
@@ -8,6 +8,6 @@ app.config['SECRET_KEY'] = os.urandom(24)
 
 print(__name__)
 
-c = BaseCache()
+c = SimpleCache()
 
 from server import routes

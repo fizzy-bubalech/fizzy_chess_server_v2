@@ -18,7 +18,7 @@ def defult_route():
 def save_to_cache():
     if(request.method == 'POST'):
         c.set('test', 'worked')
-        return redirect(url_for(load_cache))
+        return redirect('/load')
     return render_template("cache_test.html")
 @app.route("/load")
 def load_cache():
