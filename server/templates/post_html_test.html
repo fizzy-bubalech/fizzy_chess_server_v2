@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Request Form</h1>
+<form method="POST" action="">
+    <br><br>
+    <label for="fname">Request Head:</label>
+    <select id="request_head">
+        <option value ="none">Nothing</option>
+        <option value ="guava">Guava</option>
+        <option value ="lychee">Lychee</option>
+        <option value ="papaya">Papaya</option>
+        </select> <br><br>
+    <label for="fname">Request Body</label>
+    <input type="text" id="request_body"><br><br>
+    <label for="fname">Request Meta</label>
+    <input type="text" id="request_meta"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock content %}

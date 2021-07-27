@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<h1>The Board</h1>
+<div class = "inline">
+<form method="POST" action="">
+    <p>Move:</p><input type="text" name="move"><input type ="submit" value="Submit">
+</form>
+</div>
+<br>    
+<div  class="grid-container">
+{% for square in board %}
+    <div class="grid-item">{{ square }}</div>
+{% endfor %}
+</div>
+{% endblock content %}
