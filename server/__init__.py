@@ -8,9 +8,9 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = os.urandom(24) 
 
-cache.init_app(app=app, config={"CACHE_TYPE": "filesystem",'CACHE_DIR': Path('/tmp')})
+cache.init_app(app=app, config={"CACHE_TYPE": "filesystem",'CACHE_DIR': Path('/tmp/cache')})
 
-cache1.init_app(app=app, config={"CACHE_TYPE": "filesystem",'CACHE_DIR': Path('/tmp')})
+cache1.init_app(app=app, config={"CACHE_TYPE": "filesystem",'CACHE_DIR': Path('/tmp/cache1')})
 
 
 print(__name__)

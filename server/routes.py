@@ -22,13 +22,13 @@ def defult_route():
 @app.route("/save", methods = ['POST','GET'])
 def save_to_cache():
     if(request.method == 'POST'):
-        cache.set('test', 'cache worked')
-        cache1.set('test', 'cache1 worked')
+        cache.set('test', f'cache worked at {time.time()}')
+        cache1.set('test', f'cache1 worked at {time.time()}')
         return redirect('/load')
     return render_template("cache_test.html")
 @app.route("/load")
 def load_cache():
-    return f"{time.gmtime()}<br>{cache.get('test')=}<br>{cache1.get('test')=}"
+    return f"<br>{cache.get('test')=}<br>{cache1.get('test')=}"
 
 @app.route("/board-test", methods = ['POST', 'GET'])
 def test_board():
