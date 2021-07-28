@@ -10,6 +10,8 @@ from server.utill import board_obj_to_formatted
 
 import chess
 
+import time
+
 
 @app.route('/', methods =['POST', 'GET'])
 def defult_route():
@@ -26,7 +28,7 @@ def save_to_cache():
     return render_template("cache_test.html")
 @app.route("/load")
 def load_cache():
-    return f"{cache.get('test')=}\n{cache1.get('test')=}"
+    return f"{time.gmtime()}<br>{cache.get('test')=}<br>{cache1.get('test')=}"
 
 @app.route("/board-test", methods = ['POST', 'GET'])
 def test_board():

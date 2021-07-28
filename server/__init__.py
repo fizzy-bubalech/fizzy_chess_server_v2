@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = os.urandom(24)
 
 cache.init_app(app=app, config={"CACHE_TYPE": "filesystem",'CACHE_DIR': Path('/tmp')})
 
-cache1.init_app(app=app, config={"CACHE_TYPE": "filesystem",'CACHE_DIR': Path('/tmp1')})
+cache1.init_app(app=app, config={"CACHE_TYPE": "filesystem",'CACHE_DIR': Path('/tmp')})
 
 
 print(__name__)
