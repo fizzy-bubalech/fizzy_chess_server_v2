@@ -2,7 +2,7 @@ from flask.helpers import url_for
 from werkzeug.utils import redirect
 from server import app
 
-from server.common import cache
+from server.common import cache, cache1
 
 from flask import request, render_template, redirect, url_for
 
@@ -20,12 +20,13 @@ def defult_route():
 @app.route("/save", methods = ['POST','GET'])
 def save_to_cache():
     if(request.method == 'POST'):
-        cache.set('test', 'worked')
+        cache.set('test', 'cache worked')
+        cache1.set('test', 'cache1 worked')
         return redirect('/load')
     return render_template("cache_test.html")
 @app.route("/load")
 def load_cache():
-    return str(cache.get('test'))
+    return f"{cache.get('test')=}\n{cache1.get('test')=}"
 
 @app.route("/board-test", methods = ['POST', 'GET'])
 def test_board():
