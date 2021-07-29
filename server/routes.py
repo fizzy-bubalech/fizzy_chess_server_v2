@@ -6,7 +6,7 @@ from server.common import cache, cache1
 
 from flask import request, render_template, redirect, url_for
 
-from server.utill import board_obj_to_formatted
+from server.utill import board_obj_to_formatted, load_game, save_game
 
 import chess
 
@@ -32,13 +32,13 @@ def load_cache():
 
 @app.route("/board-test", methods = ['POST', 'GET'])
 def test_board():
+    game = load_game(1)
     if(request.method == 'POST'):
-        board = chess.Board()
+        board = game.board
         board.push_san(request.form['move'])
+        game.board = board
         str_board = board_obj_to_formatted(board)
+        save_game(game.id,game)
         return render_template("board_test.html", board = str_board)
-    str_board = str(chess.Board())
-    ls_board = [x for x in str_board]
-    new_ls = [i for i in ls_board if i != "\n"]
-    str_board = ''.join([i for i in new_ls if i != " "])
+    str_board = board_obj_to_formatted(game.board)
     return render_template("board_test.html", board = str_board)
